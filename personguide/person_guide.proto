@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+
+option go_package="github.com/az58740/grpc-personguide/personguide";
+
+package personguide;
+import "google/protobuf/timestamp.proto";
+
+service PersonGuide {
+    //Unary RPC=> Obtains the PhoneNumber from the given Person.
+    rpc GetPhone (Person) returns (PhoneNumber);
+
+   //Server_side streaming => Obtains the Persons related to the adress.  Results are
+   // streamed rather than returned at once (e.g. in a response message with a
+   // repeated field).
+   rpc ListPersons (Adress) returns (stream Person);
+
+   //Client_side streaming=> Accepts a stream of Persons on a route being traversed, returning a
+   // AddressBook when traversal is completed.
+  rpc RecordPersons (stream Person) returns (AddressBook); 
+
+  //A bidirectional streaming RPC => Accepts a stream of Person sent while a route is being traversed,
+  // while receiving Phone Numbers (e.g. from other users).
+  rpc RoutePhones(stream Person) returns (stream PhoneNumber) {}
+ 
+}
+
+
+message Person {
+  string name = 1;
+  int32 id = 2;  // Unique ID number for this person.
+  string email = 3;
+
+  repeated PhoneNumber phones = 4;
+
+  google.protobuf.Timestamp last_updated = 5;
+}
+enum PhoneType {
+  MOBILE = 0;
+  HOME = 1;
+  WORK = 2;
+}
+message PhoneNumber{
+  string number=1;
+  PhoneType type=2;
+
+}
+// Our address book file is just one of these.
+message AddressBook {
+  repeated Person people = 1;
+}
+
+message Adress {
+  string name = 1;
+}
