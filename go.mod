@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/jackgris/go-grpc-communication v0.0.0-20230420225136-2a67fa2757ac
 	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect

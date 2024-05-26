@@ -1,5 +1,7 @@
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+github.com/jackgris/go-grpc-communication v0.0.0-20230420225136-2a67fa2757ac h1:nZIaclKiSV/xQ0LmiEbFBJ0wXnsbirI17E/hHWxL8No=
+github.com/jackgris/go-grpc-communication v0.0.0-20230420225136-2a67fa2757ac/go.mod h1:MAj23uIl2G4PBJHREXpAKMUpCk60S8sSQsXjZ8v+R2I=
 golang.org/x/net v0.22.0 h1:9sGLhx7iRIHEiX0oAJ3MRZMUCElJgy7Br1nO+AMN3Tc=
 golang.org/x/net v0.22.0/go.mod h1:JKghWKKOSdJwpW2GEx0Ja7fmaKnMsbu+MWVZTokSYmg=
 golang.org/x/net v0.23.0 h1:7EYJ93RZ9vYSZAIb2x3lnuvqO5zneoD6IvWjuhfxjTs=

@@ -12,9 +12,9 @@ import (
 	"time"
 
 	pb "github.com/az58740/grpc-personguide/personguide"
+	"github.com/jackgris/go-grpc-communication/data"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/examples/data"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
@@ -122,6 +122,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	var opts []grpc.ServerOption
+
 	if *tls {
 		if *certFile == "" {
 			*certFile = data.Path("x509/server_cert.pem")
@@ -135,6 +136,7 @@ func main() {
 		}
 		opts = []grpc.ServerOption{grpc.Creds(creds)}
 	}
+
 	grpcServer := grpc.NewServer(opts...)
 	pb.RegisterPersonGuideServer(grpcServer, newServer())
 	err = grpcServer.Serve(lis)
