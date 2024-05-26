@@ -129,6 +129,16 @@ func main() {
 	}
 	defer conn.Close()
 	client := pb.NewPersonGuideClient(conn)
+	runRecordPersons(client)
+
+	runRoutePhones(client)
+
+	for p := range persons {
+		printPhone(client, &persons[p])
+	}
+
+	adress := pb.Adress{Name: "my adress"}
+	printPersons(client, &adress)
 
 }
 
